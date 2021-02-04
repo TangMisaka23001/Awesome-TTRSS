@@ -15,7 +15,8 @@ services:
     ports:
       - 9010:80
     environment:
-      - SELF_URL_PATH=http://8.210.62.98:9010/ # please change to your own domain
+      - SELF_URL_PATH=https://www.bilibill.site # please change to your own domain
+        # - SELF_URL_PATH=http://8.210.62.98:9010/ # please change to your own domain
       - DB_HOST=database.postgres
       - DB_PORT=5432
       - DB_NAME=ttrss
@@ -23,6 +24,8 @@ services:
       - DB_PASS=ODBGK1RHUExE # please change the password
       - ENABLE_PLUGINS=auth_internal,fever # auth_internal is required. Plugins enabled here will be enabled for all users as system plugins
       - FEED_LOG_QUIET=true
+      - SESSION_COOKIE_LIFETIME=720
+      - HTTP_PROXY=http://172.17.0.1:7892
     stdin_open: true
     tty: true
     #restart: always
